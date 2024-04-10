@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products | Solongdy</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Product Management</h1>
+    <div class="input-field-container">
+      <div class="input-field">
+        <input
+          type="text"
+          name="text"
+          id="productName"
+          placeholder="Product Name"
+        />
+        <input type="number" name="price" id="price" placeholder="Price" />
+        <input type="number" name="qty" id="qty" placeholder="Quantity" />
+        <button id="btnAdd">Add Product</button>
+        <button id="btnClear">Clear Data</button>
+      </div>
+    </div>
+    <h2>Today Sales</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Qty</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3" class="total">Grand Total</td>
+          <td id="total">0</td>
+        </tr>
+      </tfoot>
+    </table>
+    <script src="script.js"></script>
+  </body>
+</html>

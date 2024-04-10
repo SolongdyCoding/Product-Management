@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+:root {
+  font-size: 62.5%;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  padding-inline: 2rem;
+}
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin: 2rem 0 5rem 0;
+  text-decoration: underline;
+}
+h2 {
+  font-size: 2.5rem;
+  margin-block: 4rem;
+}
+input,
+button {
+  display: block;
+  font-size: 2rem;
+}
+input {
+  padding: 1rem;
+}
+#price {
+  background: rgba(255, 0, 0, 0.15);
+  border: 1px solid black;
+}
+button {
+  padding: 1.5rem 2rem;
+  border: 2px solid black;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+button:hover {
+  background: black;
+  color: white;
+  box-shadow: 0 0 30px black;
+}
+table {
+  border-collapse: collapse;
+  width: min(100%, 100%);
+}
+table,
+tr,
+th,
+td {
+  border: 2px solid black;
+  padding: 1.5rem;
+  font-size: 2rem;
+}
+.input-field {
+  display: flex;
+  align-items: center;
+  gap: 0 2rem;
+}
+#total,
+.total {
+  text-align: center;
+}
