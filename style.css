@@ -66,3 +66,55 @@ td {
 .total {
   text-align: center;
 }
+dialog {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+}
+dialog[open] {
+  box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.5);
+  animation: fade-in 0.4s forwards, slide-up 0.4s forwards;
+}
+dialog > div {
+  padding: 2rem;
+}
+dialog > div > h2 {
+  text-align: center;
+  margin-block: 0.5rem;
+}
+dialog > div > p {
+  font-size: 2rem;
+  margin-block: 3rem;
+}
+.closeBtn {
+  display: block;
+  margin-inline: auto;
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes slide-up {
+  0% {
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+  }
+  100% {
+    top: 30%;
+    transform: translate(-50%, -30%);
+  }
+}

@@ -36,50 +36,60 @@ window.addEventListener("DOMContentLoaded", function () {
 
     table.appendChild(rowLoad);
 
-    total.textContent = totalNum;
+    total.textContent = totalNum + " $";
   }
 });
 
 const productArr = [];
 
 btnAdd.addEventListener("click", () => {
-  i = Init(i, localStorage);
-  console.log(i);
+  if (productName.value == "" && price.value == "" && qty.value == "") {
+    const closeBtn = document.querySelector(".closeBtn");
+    const Dialog = document.querySelector("dialog");
 
-  productArr.push({
-    nameProduct: productName.value,
-    price: price.value,
-    qty: qty.value,
-  });
+    Dialog.open = true;
+    closeBtn.addEventListener("click", function () {
+      Dialog.open = false;
+    });
+  } else {
+    i = Init(i, localStorage);
+    console.log(i);
 
-  console.log(productArr);
+    productArr.push({
+      nameProduct: productName.value,
+      price: price.value,
+      qty: qty.value,
+    });
 
-  productName.value = "";
-  price.value = "";
-  qty.value = "";
+    console.log(productArr);
 
-  localStorage.setItem(`Product${i + 1}`, JSON.stringify(productArr[i]));
+    productName.value = "";
+    price.value = "";
+    qty.value = "";
 
-  const rowElement = RowElement(
-    JSON.parse(localStorage.getItem(`Product${i + 1}`)).nameProduct,
-    JSON.parse(localStorage.getItem(`Product${i + 1}`)).price,
-    JSON.parse(localStorage.getItem(`Product${i + 1}`)).qty
-  );
+    localStorage.setItem(`Product${i + 1}`, JSON.stringify(productArr[i]));
 
-  table.appendChild(rowElement);
+    const rowElement = RowElement(
+      JSON.parse(localStorage.getItem(`Product${i + 1}`)).nameProduct,
+      JSON.parse(localStorage.getItem(`Product${i + 1}`)).price,
+      JSON.parse(localStorage.getItem(`Product${i + 1}`)).qty
+    );
 
-  totalNum = 0;
+    table.appendChild(rowElement);
 
-  for (let l = 0; l < productArr.length; l++) {
-    totalNum =
-      totalNum +
-      JSON.parse(localStorage.getItem(`Product${l + 1}`)).price *
-        JSON.parse(localStorage.getItem(`Product${l + 1}`)).qty;
+    totalNum = 0;
+
+    for (let l = 0; l < productArr.length; l++) {
+      totalNum =
+        totalNum +
+        JSON.parse(localStorage.getItem(`Product${l + 1}`)).price *
+          JSON.parse(localStorage.getItem(`Product${l + 1}`)).qty;
+    }
+
+    total.textContent = totalNum + " $";
+
+    i++;
   }
-
-  total.textContent = totalNum;
-
-  i++;
 });
 
 btnClear.addEventListener("click", () => {
@@ -99,11 +109,11 @@ function RowElement(pName, pPrice, pQty) {
   const td4 = document.createElement("td");
   td1.textContent = pName;
   tr.appendChild(td1);
-  td2.textContent = pPrice;
+  td2.textContent = pPrice + " $";
   tr.appendChild(td2);
   td3.textContent = pQty;
   tr.appendChild(td3);
-  td4.textContent = parseFloat(pPrice) * parseFloat(pQty);
+  td4.textContent = parseFloat(pPrice) * parseFloat(pQty) + "$ ";
   tr.appendChild(td4);
   return tr;
 }
